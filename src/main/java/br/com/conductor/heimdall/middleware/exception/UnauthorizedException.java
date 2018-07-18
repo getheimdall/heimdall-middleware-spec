@@ -31,8 +31,8 @@ public class UnauthorizedException extends MiddlewareException {
 
      private static final long serialVersionUID = -190925457848682557L;
 
-     public UnauthorizedException(ExceptionMessage exeptionMessage) {
-          super(exeptionMessage);
+     public UnauthorizedException(ExceptionMessage exceptionMessage) {
+          super(exceptionMessage);
      }
      
 }

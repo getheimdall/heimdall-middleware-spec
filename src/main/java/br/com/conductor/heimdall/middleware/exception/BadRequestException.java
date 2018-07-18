@@ -31,7 +31,7 @@ public class BadRequestException extends MiddlewareException{
 
      private static final long serialVersionUID = 4608534210162231720L;
 
-     public BadRequestException(ExceptionMessage exeptionMessage){
-          super(exeptionMessage);
+     public BadRequestException(ExceptionMessage exceptionMessage){
+          super(exceptionMessage);
      }
 }

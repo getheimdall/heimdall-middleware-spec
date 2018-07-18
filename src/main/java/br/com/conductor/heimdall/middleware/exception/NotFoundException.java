@@ -31,7 +31,7 @@ public class NotFoundException extends MiddlewareException{
 
      private static final long serialVersionUID = -9207328768931465619L;
 
-     public NotFoundException(ExceptionMessage exeptionMessage) {
-          super(exeptionMessage);
+     public NotFoundException(ExceptionMessage exceptionMessage) {
+          super(exceptionMessage);
      }
 }

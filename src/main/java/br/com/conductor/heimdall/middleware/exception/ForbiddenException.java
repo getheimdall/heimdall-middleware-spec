@@ -31,9 +31,8 @@ public class ForbiddenException extends MiddlewareException {
 
      private static final long serialVersionUID = 4237219156864550613L;
 
-     public ForbiddenException(ExceptionMessage exeptionMessage) {
-
-          super(exeptionMessage);
+     public ForbiddenException(ExceptionMessage exceptionMessage) {
+          super(exceptionMessage);
      }
 
 }

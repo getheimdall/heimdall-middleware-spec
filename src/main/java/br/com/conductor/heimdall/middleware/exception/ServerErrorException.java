@@ -31,7 +31,7 @@ public class ServerErrorException extends MiddlewareException{
 
      private static final long serialVersionUID = -6934489652309566129L;
 
-     public ServerErrorException(ExceptionMessage exeptionMessage){
-          super(exeptionMessage);
+     public ServerErrorException(ExceptionMessage exceptionMessage){
+          super(exceptionMessage);
      }
 }
