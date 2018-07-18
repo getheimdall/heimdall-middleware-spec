@@ -10,9 +10,9 @@ package br.com.conductor.heimdall.middleware.spec;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -28,50 +28,49 @@ import java.util.Map;
  * This interface represents a response to the Api.
  *
  * @author Filipe Germano
- *
  */
 public interface ApiResponse extends Serializable {
-     
-	 /**
-	  * Gets the body of a request.
-	  * 
-	  * @return			The body of the request
-	  */
-     public String getBody();
 
-     /**
-      * Sets the body of a request.
-      * 
-      * @param body		The body of the request
-      */
-     public void setBody(String body);
+    /**
+     * Gets the body of a request.
+     *
+     * @return The body of the request
+     */
+    String getBody();
 
-     /**
-      * Gets the headers of a request.
-      * 
-      * @return			The headers of a request
-      */
-     public Map<String, String> getHeaders();
+    /**
+     * Sets the body of a request.
+     *
+     * @param body The body of the request
+     */
+    void setBody(String body);
 
-     /**
-      * Sets the headers of a request.
-      * 
-      * @param headers	The headers of a request
-      */
-     public void setHeaders(Map<String, String> headers);
+    /**
+     * Gets the headers of a request.
+     *
+     * @return The headers of a request
+     */
+    Map<String, String> getHeaders();
 
-     /**
-      * Gets the status of a request.
-      * 
-      * @return			The status of a request
-      */
-     public Integer getStatus();
+    /**
+     * Sets the headers of a request.
+     *
+     * @param headers The headers of a request
+     */
+    void setHeaders(Map<String, String> headers);
 
-     /**
-      * Sets the status of a request.
-      * 
-      * @param status	The status of a request
-      */
-     public void setStatus(Integer status);
+    /**
+     * Gets the status of a request.
+     *
+     * @return The status of a request
+     */
+    Integer getStatus();
+
+    /**
+     * Sets the status of a request.
+     *
+     * @param status The status of a request
+     */
+    void setStatus(Integer status);
 
 }
