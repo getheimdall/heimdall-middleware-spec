@@ -70,9 +70,12 @@ public interface DB {
     public <T> List<T> findAll(Class<T> classType);
 
     /**
-     * Find a documents
+     * Creates a paged list of objects that follow a provided criteria.
      *
-     * @param object
+     * @param criteria Object criteria
+     * @param page Page number
+     * @param limit Limit per page
+     * @return The paged list
      */
     public <T> Page<T> find(Object criteria, Integer page, Integer limit);
 

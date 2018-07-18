@@ -42,7 +42,7 @@ public interface DBMongo extends DB {
      * Inserts a List of objects to a {@link MongoCollection} of {@link Document}.
      *
      * @param collection {@link MongoCollection} of {@link Document}
-     * @param object     List of Objects to insert
+     * @param objects     List of Objects to insert
      */
     public <T> void insertMany(MongoCollection<Document> collection, List<T> objects);
 
