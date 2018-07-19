@@ -30,199 +30,69 @@ import br.com.conductor.heimdall.middleware.spec.Info;
  */
 public class InfoMock implements Info {
 
-    private String app;
-    private String apiName;
-    private Long apiId;
-    private String appDeveloper;
-    private String method;
-    private String clientId;
-    private String accessToken;
-    private String pattern;
-    private Long operationId;
-    private String profile;
-    private Long resourceId;
-    private String url;
-    private String requestURI;
-
     @Override
     public String appName() {
-        return this.app;
+        return "";
     }
 
     @Override
     public String apiName() {
-        return this.apiName;
+        return "";
     }
 
     @Override
     public Long apiId() {
-        return this.apiId;
+        return 0L;
     }
 
     @Override
     public String developer() {
-        return this.appDeveloper;
+        return "";
     }
 
     @Override
     public String method() {
-        return this.method;
+        return "";
     }
 
     @Override
     public String clientId() {
-        return this.clientId;
+        return "";
     }
 
     @Override
     public String accessToken() {
-        return this.accessToken;
+        return "";
     }
 
     @Override
     public String pattern() {
-        return this.pattern;
+        return "";
     }
 
     @Override
     public Long operationId() {
-        return this.operationId;
+        return 0L;
     }
 
     @Override
     public String profile() {
-        return this.profile;
+        return "";
     }
 
     @Override
     public Long resourceId() {
-        return this.resourceId;
+        return 0L;
     }
 
     @Override
     public String url() {
-        return this.url;
+        return "";
     }
 
     @Override
     public String requestURI() {
-        return this.requestURI;
+        return "";
     }
 
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param app app
-     */
-    public void setApp(String app) {
-        this.app = app;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param apiName api name
-     */
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param apiId api id
-     */
-    public void setApiId(Long apiId) {
-        this.apiId = apiId;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param appDeveloper app Developer
-     */
-    public void setAppDeveloper(String appDeveloper) {
-        this.appDeveloper = appDeveloper;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param method method
-     */
-    public void setMethod(String method) {
-        this.method = method;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param clientId clientId
-     */
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param accessToken access Token
-     */
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param pattern pattern
-     */
-    public void setPattern(String pattern) {
-        this.pattern = pattern;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param operationId operation id
-     */
-    public void setOperationId(Long operationId) {
-        this.operationId = operationId;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param profile profile
-     */
-    public void setProfile(String profile) {
-        this.profile = profile;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param resourceId resource id
-     */
-    public void setResourceId(Long resourceId) {
-        this.resourceId = resourceId;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param url url
-     */
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    /**
-     * Set method designed for mock purposes
-     *
-     * @param requestURI request URI
-     */
-    public void setRequestURI(String requestURI) {
-        this.requestURI = requestURI;
-    }
 }

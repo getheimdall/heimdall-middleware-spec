@@ -40,30 +40,14 @@ public class XmlMockImpl implements Xml {
     @Override
     public <T> String parse(T object) {
 
-        try {
-            return mapper().writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            return null;
-        }
+        return "";
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public <T> T parse(String xml, Class<?> classType) {
 
-        try {
-            return (T) mapper().readValue(xml, classType);
-        } catch (IOException e) {
-            return null;
-        }
+        return (T) new Object();
     }
 
-    private ObjectMapper mapper() {
-
-        ObjectMapper mapper = new XmlMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-
-        return mapper;
-    }
 }

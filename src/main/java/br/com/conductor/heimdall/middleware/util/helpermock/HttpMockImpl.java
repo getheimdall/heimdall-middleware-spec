@@ -23,9 +23,7 @@ package br.com.conductor.heimdall.middleware.util.helpermock;
 
 import br.com.conductor.heimdall.middleware.spec.ApiResponse;
 import br.com.conductor.heimdall.middleware.spec.Http;
-import br.com.conductor.heimdall.middleware.spec.Json;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -35,72 +33,40 @@ import java.util.Map;
  */
 public class HttpMockImpl implements Http {
 
-    private Json json;
-    private Map<String, String> headers;
-    private Map<String, String> queryParams;
-    private String url;
-    private String body;
-
-    public HttpMockImpl() {
-        this.json = new JsonMockImpl();
-        this.headers = new HashMap<>();
-        this.queryParams = new HashMap<>();
-    }
-
     @Override
     public Http header(String name, String value) {
-
-        this.headers.put(name, value);
-
         return this;
     }
 
     @Override
     public Http header(Map<String, String> params) {
-
-        params.forEach((k, v) -> {
-            if (v != null) {
-                this.headers.put(k, v);
-            }
-        });
-
         return this;
     }
 
     @Override
     public Http url(String url) {
-        this.url = url;
         return this;
     }
 
     @Override
     public Http queryParam(String name, String value) {
-        this.queryParams.put(name, value);
         return this;
     }
 
     @Override
     public Http body(Map<String, Object> params) {
-        this.body = json.parse(params);
         return this;
     }
 
     @Override
     public Http body(String params) {
-        this.body = json.parse(params);
         return this;
     }
 
     @Override
     public ApiResponse sendGet() {
 
-        ApiResponse response = new ApiResponseMockImpl();
-
-        response.setHeaders(headers);
-        response.setBody("{ \"response\" : \"response body\"");
-        response.setStatus(200);
-
-        return response;
+        return new ApiResponseMockImpl();
     }
 
     @Override
