@@ -23,17 +23,12 @@ package br.com.conductor.heimdall.middleware.util.helpermock;
 
 import br.com.conductor.heimdall.middleware.spec.DBMongo;
 import br.com.conductor.heimdall.middleware.util.Page;
-import com.google.common.collect.Lists;
-import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.mockito.Mockito;
-import org.mongodb.morphia.Datastore;
-import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,24 +38,13 @@ import java.util.List;
  */
 public class DBMockImpl implements DBMongo {
 
-    private List<Object> mongoDatabase;
-
-    private String databaseName;
-
     DBMockImpl(String databaseName) {
-        this.mongoDatabase = Lists.newArrayList();
-        this.databaseName = databaseName;
     }
 
     @Override
     public <T> T save(T object) {
 
-        try {
-            mongoDatabase.add(object);
-            return object;
-        } catch (Exception e) {
-            return null;
-        }
+        return object;
     }
 
     @Override
@@ -72,20 +56,19 @@ public class DBMockImpl implements DBMongo {
     @Override
     public <T> Boolean delete(T object) {
 
-        this.mongoDatabase.remove(object);
         return true;
     }
 
     @Override
     public <T> T findOne(T object) {
 
-        return (T) mongoDatabase.get(mongoDatabase.indexOf(object));
+        return object;
     }
 
     @Override
     public <T> List<T> findAll(Class<T> classType) {
 
-        return Lists.newArrayList();
+        return new ArrayList<>();
     }
 
     @Override
@@ -113,7 +96,7 @@ public class DBMockImpl implements DBMongo {
     @Override
     public <T> Query<T> getQueryProvider(Object criteria) {
 
-        return (Query<T>) this.datastore().createQuery(criteria.getClass());
+        return (Query<T>) new Object();
     }
 
     @Override
@@ -125,41 +108,19 @@ public class DBMockImpl implements DBMongo {
     @Override
     public MongoCollection<Document> collection(String name) {
 
-        return database().getCollection(name);
+        return null;
     }
 
     @Override
     public <T> MongoCollection<Document> collection(Class<T> classType) {
 
-        return database().getCollection(classType.getSimpleName());
+        return null;
     }
 
     @Override
     public <T> T merge(T object) {
 
-        try {
-            return findOne(object);
-        } catch (Exception e) {
-            return null;
-        }
-
-    }
-
-    /*
-     * Private helper methods
-     */
-    private MongoClient createMongoClient() {
-        return Mockito.mock(MongoClient.class);
-    }
-
-    private Datastore datastore() {
-
-        return new Morphia().createDatastore(createMongoClient(), this.databaseName);
-    }
-
-    private MongoDatabase database() {
-
-        return createMongoClient().getDatabase(databaseName);
+        return findOne(object);
     }
 
 }

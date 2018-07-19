@@ -48,15 +48,7 @@ public class EnvironmentMock implements Environment {
     @Override
     public String getVariable(String key) {
 
-        return currentVariables.get(key);
+        return "";
     }
 
-    /**
-     * Use this method to set the mock environment variables
-     *
-     * @param currentVariables Environment variables Map
-     */
-    public void setCurrentVariables(Map<String, String> currentVariables) {
-        this.currentVariables = currentVariables;
-    }
 }

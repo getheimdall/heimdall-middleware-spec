@@ -22,15 +22,8 @@ package br.com.conductor.heimdall.middleware.util.helpermock;
  */
 
 import br.com.conductor.heimdall.middleware.spec.Json;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -42,97 +35,33 @@ public class JsonMockImpl implements Json {
 
     public String parse(Map<String, Object> body) {
 
-        try {
-            return mapper().writeValueAsString(body);
-        } catch (JsonProcessingException e) {
-
-            return null;
-        }
+        return "";
     }
 
     public String parse(String string) {
 
-        try {
-
-            JSONObject jsonObject = new JSONObject(string);
-
-            return jsonObject.toString();
-        } catch (JSONException e) {
-            try {
-                JSONArray array = new JSONArray(string);
-                return array.toString();
-            } catch (JSONException ex1) {
-                if (!string.isEmpty())
-                    return string;
-            }
-        }
-
-        return null;
+        return "";
     }
 
     public <T> String parse(T object) {
 
-        try {
-
-            return mapper().writeValueAsString(object);
-        } catch (Exception e) {
-            return null;
-        }
+        return "";
     }
 
+    @SuppressWarnings("unchecked")
     public <T> T parse(String json, Class<?> classType) {
 
-        try {
-            mapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            @SuppressWarnings("unchecked")
-            T obj = (T) mapper().readValue(json, classType);
-            return obj;
-        } catch (Exception e) {
-            return null;
-        }
+        return (T) new Object();
     }
 
     public <T> Map<String, Object> parseToMap(T object) {
 
-        try {
-            mapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            ObjectMapper mapper = mapper().setSerializationInclusion(JsonInclude.Include.NON_NULL);
-            String jsonInString = mapper.writeValueAsString(object);
-
-            @SuppressWarnings("unchecked")
-            Map<String, Object> map = mapper.readValue(jsonInString, Map.class);
-            return map;
-        } catch (Exception e) {
-
-            return null;
-        }
+        return new HashMap<>();
     }
 
     public boolean isJson(String string) {
 
-        boolean valid = false;
-        try {
-            JSONObject jsonObject = new JSONObject(string);
-
-            valid = true;
-        } catch (JSONException e) {
-
-            try {
-                new JSONArray(string);
-                valid = true;
-            } catch (JSONException ignored) {
-            }
-        }
-
-        return valid;
+        return true;
     }
 
-    private ObjectMapper mapper() {
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-
-        return mapper;
-    }
 }
