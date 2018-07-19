@@ -21,7 +21,6 @@ package br.com.conductor.heimdall.middleware.exception;
  * ==========================LICENSE_END===================================
  */
 
-import br.com.twsoftware.alfred.object.Objeto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -72,7 +71,7 @@ public enum ExceptionMessage {
         this.httpCode = httpCode;
         this.defaultMessage = message;
         this.klass = klass;
-        this.message = Objeto.isBlank(this.message) ? this.defaultMessage.replace("{}", "") : this.message;
+        this.message = (this.message == null || message.equals("")) ? this.defaultMessage.replace("{}", "") : this.message;
     }
 
     /**
@@ -82,7 +81,7 @@ public enum ExceptionMessage {
 
         log.debug("Raising error: {}", this);
 
-        this.message = Objeto.isBlank(this.message) ? this.defaultMessage.replace("{}", "") : this.message;
+        this.message = (this.message == null || message.equals("")) ? this.defaultMessage.replace("{}", "") : this.message;
 
         if (this.badRequest()) {
 
