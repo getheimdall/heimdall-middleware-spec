@@ -33,9 +33,6 @@ import java.util.Map;
  */
 public class HttpMockImpl implements Http {
 
-    public HttpMockImpl() {
-    }
-
     @Override
     public Http header(String name, String value) {
         return this;

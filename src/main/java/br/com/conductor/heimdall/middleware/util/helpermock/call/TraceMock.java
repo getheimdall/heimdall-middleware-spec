@@ -31,7 +31,6 @@ import br.com.conductor.heimdall.middleware.spec.Trace;
  */
 public class TraceMock implements Trace {
 
-    private String trace;
     private StackTrace stackTrace;
 
     @Override
@@ -46,13 +45,9 @@ public class TraceMock implements Trace {
     }
 
     @Override
-    public void addTrace(String trace) {
-        this.trace = trace;
-    }
+    public void addTrace(String trace) { }
 
     @Override
-    public void addTrace(String trace, Object object) {
-        this.trace = trace;
-    }
+    public void addTrace(String trace, Object object) { }
 
 }
